@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P:wght@400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  html {
+    /* font-family: "Montserrat", sans-serif; */
+    font-family: 'Press Start 2P', sans-serif;
+  }
+  body {
+    font-family: 'Press Start 2P', sans-serif;
+    background: rgb(0, 0, 0);
+    padding: 0 16px;
+  }
+
+  button {
+    font-family: 'Press Start 2P', sans-serif;
+  }
+
+  /* ======== Header ======== */
+
+  header {
+    background-color: #978656;
+    margin: auto -16px;
+    padding: 16px 32px;
+    color: #fff;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  }
+  
+  header h1 {
+    color: #fff;
+    font-weight:200;
+  }
+
+  .header-parent {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .header-child1 {
+    flex: 1;
+    color: #fff;
+    text-align: center;
+    padding: 1%;
+    margin-right:50%;
+  }
+
+  .header-child2 {
+    flex: 1;
+    color: #fff;
+    padding: 1%;
+    text-align: center;
+  }
+
+  .log-or-sin-link {
+    margin: 5px;
+    color:  #fff;
+    background-color: #978656;
+    text-decoration: none;
+    font-size: 20px;
+  }
+
+  
+  /* ======== Content ======== */
+
+  .content-parent {
+    text-align: center;
+    padding: 5em;
+    padding-top: 12em;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .content-child1 {
+    padding: 10%;
+    margin-right: 5%;
+    flex: 1;
+    border: 2px solid rgb(67, 66, 76);
+  }
+
+  .content-child2 {
+    padding: 10%;
+    margin-left: 5%;
+    flex: 1;
+    border: 2px solid rgb(67, 66, 76);
+  }
+
+  .content-child {
+    padding: 10%;
+    flex: 1;
+    border: 2px solid rgb(67, 66, 76);
+  }
+
+  .glow-on-hover {
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #100d0d;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+
+
+/* ======== Sign-up ======== */
+
+
+.form {
+    text-align: center;
+    margin: 10% auto;
+}
+
+input {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height:60px;
+    font-size: 24px;
+    font-family: 'Press Start 2P', sans-serif;
+    margin: 1% auto;
+}
+
+
+.signup-btn {
+    margin: auto;
+    width: 30%;
+    height: 60px;
+    display: flex;
+    flex: 1;
+    font-weight: 300;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: #978656;
+  }
+
+  .signup-btn:hover {
+    cursor: pointer;
+    background-color: #4d4738;
+    color: #fff;
+  }
+
+  input::placeholder {
+    color: red;
+    font-size: 16px;
+    font-family: 'Press Start 2P', sans-serif;
+    text-align: center;
+  }
+
+  input:focus::placeholder {
+    color: blue;
+  }
+  
+  
+
+
+  /* ======== Login ======== */
+
+  .login-parent {
+    font-weight: 300;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-btn {
+    margin: auto;
+    width: 30%;
+    height: 60px;
+    display: flex;
+    flex: 1;
+    font-weight: 300;
+    font-size: 20px;
+    background-color: #978656;
+    color: #fff;
+    align-items: center;
+    justify-content: centerLink
+  }
+
+  .login-btn:hover {
+    cursor: pointer;
+    background-color: #4d4738;
+    color: #fff;
+  }
