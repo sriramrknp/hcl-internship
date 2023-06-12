@@ -1,16 +1,9 @@
-import React, {useState} from "react";
+import React from "react";
 
 function Input(props) {
 
-    const [index, setIndex] = useState(0)
-
-    function handleIndex() {
-        setIndex(index + 1);
-    }
-
     return (
         <input
-            key={handleIndex}
             type={props.type}
             name={props.name}
             id={props.id}

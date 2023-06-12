@@ -7,13 +7,18 @@ function Header({ showLogin = false, showSignup = false }) {
         <header>
             <div className="header-parent">
                 <div className="header-child1">
-                    <h1> AI <span>verse</span> </h1>
+                    <Button
+                        type="/"
+                        name="AI verse"
+                        heading={true}
+                    />
                 </div>
                 <div className="header-child2">
                     {showLogin &&
                         <Button
                             type="login"
                             name="Login"
+                            heading={false}
                         />
                     }
 
@@ -21,6 +26,7 @@ function Header({ showLogin = false, showSignup = false }) {
                         <Button
                             type="signup"
                             name="Sign-up"
+                            heading={false}
                         />
                     }
                 </div>

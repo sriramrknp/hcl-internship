@@ -12,10 +12,10 @@ function App() {
         <div>
             <Routes>
                 <Route key={1} path="/" exact element={[
-                    <>
+                    <React.Fragment key={1}>
                         <Header showLogin showSignup /> 
                         <Content />
-                    </>
+                    </React.Fragment>
                     ]}>
                 </Route>
                 <Route key={2} path="/login-react" exact element={<Login />}>

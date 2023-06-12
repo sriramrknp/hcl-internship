@@ -40,6 +40,12 @@
     flex-direction: row;
   }
 
+  .header-link {
+    color:  #fff;
+    background-color: #978656;
+    text-decoration: none;
+  }
+
   .header-child1 {
     flex: 1;
     color: #fff;
