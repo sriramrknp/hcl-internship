@@ -179,7 +179,7 @@ input {
 }
 
 
-.signup-btn {
+.signup-btn, .login-btn{
     margin: auto;
     width: 30%;
     height: 60px;
@@ -193,7 +193,7 @@ input {
     background-color: #978656;
   }
 
-  .signup-btn:hover {
+  .signup-btn:hover,  .login-btn:hover{
     cursor: pointer;
     background-color: #4d4738;
     color: #fff;
@@ -209,37 +209,5 @@ input {
   input:focus::placeholder {
     color: blue;
   }
+
   
-  
-
-
-  /* ======== Login ======== */
-
-  .login-parent {
-    font-weight: 300;
-    font-size: 20px;
-    text-align: center;
-    padding: 10px 0;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .login-btn {
-    margin: auto;
-    width: 30%;
-    height: 60px;
-    display: flex;
-    flex: 1;
-    font-weight: 300;
-    font-size: 20px;
-    background-color: #978656;
-    color: #fff;
-    align-items: center;
-    justify-content: centerLink
-  }
-
-  .login-btn:hover {
-    cursor: pointer;
-    background-color: #4d4738;
-    color: #fff;
-  }
