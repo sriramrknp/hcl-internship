@@ -23,9 +23,7 @@ function App(props) {
                 </Route>
                 <Route key={3} path="/signup-react" exact element={<Signup />}>
                 </Route>
-                <Route key={4} path="/welcome" exact
-                    element={ <Welcome />}
-                >
+                <Route key={4} path="/welcome" exact element={<Welcome />}>
                 </Route>
             </Routes>
         </div>
