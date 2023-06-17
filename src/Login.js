@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import Header from "./Header";
+import {Navigate} from "react-router-dom";
 
 function Login() {
 
@@ -10,7 +11,11 @@ function Login() {
 
 
 	const [Username, setUsername] = useState("");
-	const [Password, setPassword] = useState("");
+    const [Password, setPassword] = useState("");
+    const [loginSuccess, setLoginSuccess] = useState(false);
+    const [loginUsername, setLoginUsername] = useState({
+        userName: ""
+    });
 
 
 	// updating the values after state changes in each input
@@ -18,7 +23,10 @@ function Login() {
 		setForm({
 			Username_: Username,
 			Password_: Password
-		});
+        });
+        setLoginUsername({
+            userName: Username
+        });
 	  }, [Username, Password]);
 
 
@@ -44,29 +52,36 @@ function Login() {
 				// Adding body or contents to send
 				body: JSON.stringify(newForm),
 				
-				// // Adding headers to the request
+				// Adding headers to the request
 				headers: {
 					"Content-type": "application/json; charset=UTF-8"
 				}
 			});
 
 			const json = await response.json();
-			console.log(json);
+            if (await json.res === "Login Success") {
+                console.log(loginUsername);
+                setLoginSuccess(true);
+            } else {
+                setUsername("");
+                setPassword("");
+
+                setForm({
+                    Username_: "",
+                    Password_: ""
+                });
+            }
 		} catch (error) {
 			console.error(error);
-		}
-
-		await setUsername("");
-		await setPassword("");
-
-		await setForm({
-			Username_: "",
-			Password_: ""
-		});
+        }
 	}
 
     return (
+
         <div>
+            {loginSuccess && 
+                <Navigate to="/welcome" replace state={loginUsername} />
+            }
             <Header showSignup />
              
             <div className="form">

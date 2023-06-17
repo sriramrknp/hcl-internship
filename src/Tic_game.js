@@ -6,7 +6,7 @@ function Tic_Tac_Toe() {
     return (
         <>
             <Header />
-                
+            
        </>
     );
 }

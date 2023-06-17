@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function Content() {
+function Content({onLogin = false}) {
 
     const [showAlert, setShowAlert] = useState(false);
 
@@ -14,20 +14,32 @@ function Content() {
 
     return (
         <div className="content-parent">
-            {!showAlert && (
+            {!showAlert ? (
                 <button className="content-child1 glow-on-hover" type="button"
                     onClick={handleButtonClick}>
                     <h1>Tic-Tac-Toe</h1>
                 </button>
-            )}
+            ) :
+                onLogin && (
+                    <button className="content-child1 glow-on-hover" type="button">
+                        <h1>Tic-Tac-Toe</h1>
+                    </button>
+                )
+            }
             
-            {!showAlert && (
+            {!showAlert ? (
                 <button className="content-child2 glow-on-hover" type="button"
                     onClick={handleButtonClick}>
                     <h1>Checkers </h1>
                 </button>
-            )}
-            {showAlert && (
+            ) :
+                onLogin && (
+                    <button className="content-child2 glow-on-hover" type="button">
+                        <h1>Checkers </h1>
+                    </button>
+                )
+            }
+            {showAlert && !onLogin && (
                 <button className="content-child glow-on-hover"
                     onClick={handleCloseAlert}>
                     <h1>Please Login to continue </h1>

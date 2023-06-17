@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 
-function Header({ showLogin = false, showSignup = false }) {
+function Header({ showLogin = false, showSignup = false, showWelcome = false, userName = "" }) {
 
     return (
         <header>
@@ -27,6 +27,14 @@ function Header({ showLogin = false, showSignup = false }) {
                             type="signup"
                             name="Sign-up"
                             heading={false}
+                        />
+                    }
+
+                    {showWelcome &&
+                        <Button
+                            type="/"
+                            name={userName}
+                            heading={true}
                         />
                     }
                 </div>
