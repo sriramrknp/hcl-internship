@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P:wght@400&display=swap');
 
 * {
     padding: 0;
@@ -29,7 +29,7 @@
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   }
   
-  header h1 {
+  header h3 {
     color: #fff;
     font-weight:200;
   }
@@ -211,3 +211,25 @@ input {
   }
 
   
+/* ======== Tic-Tac-Toe ======== */
+
+.game-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15%;
+  }
+
+  .game-child {
+    flex: 1;
+    border: 2px solid rgb(67, 66, 76);
+  }
+
+  button.game-btn {
+    vertical-align: top;
+    padding: 5px 0;
+    margin: 2px 2px;
+    font-size: 30px;
+    width: 100px;
+    height: 100px;
+  }

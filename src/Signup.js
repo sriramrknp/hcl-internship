@@ -1,8 +1,13 @@
+// Signup component,
+//  renders the signup form
+//  on successful signup navigates to the login page to login
+
 import React, { useState, useEffect } from "react";
 import Header from "./Header";
 
 function Signup() {
 
+    // set form and update form
 	const [newForm, setForm] = useState({
 		Username_: "",
 		Email_: "",
@@ -10,7 +15,8 @@ function Signup() {
 		Cnf_Password_: ""
 	});
 
-
+    // after state changes and on submission
+    //  details stored in state variables
 	const [Username, setUsername] = useState("");
 	const [Email, setEmail] = useState("");
 	const [Password, setPassword] = useState("");
@@ -25,7 +31,7 @@ function Signup() {
 			Password_: Password,
 			Cnf_Password_: Cnf_Password
 		});
-	  }, [Username, Email, Password, Cnf_Password]);
+    }, [Username, Email, Password, Cnf_Password]);
 
 
 	function handleChangeU(event) {
@@ -44,11 +50,11 @@ function Signup() {
 		setCnfPassword(event.target.value);
 	}
 
+    // handles on form submission
 	async function handleSubmit(event) {
 
 		// Prevent the form from being submitted.
 		event.preventDefault();
-
 
 		try {
 			console.log(newForm);
@@ -57,13 +63,12 @@ function Signup() {
 				method: 'POST',
 				// Adding body or contents to send
 				body: JSON.stringify(newForm),
-				
-				// // Adding headers to the request
 				headers: {
 					"Content-type": "application/json; charset=UTF-8"
 				}
 			});
 
+            // response from the server
 			const json = await response.json();
 			console.log(json);
 		} catch (error) {

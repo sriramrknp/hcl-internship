@@ -1,7 +1,11 @@
-import React, {useState} from "react";
+// Content component, renders the,
+//  Tic-Tac-Toe and checkers buttons.
 
-function Content({onLogin = false}) {
+import React, { useState } from "react";
 
+function Content({ onLogin = false }) {
+    
+    // before login alert
     const [showAlert, setShowAlert] = useState(false);
 
     const handleButtonClick = () => {
@@ -39,6 +43,8 @@ function Content({onLogin = false}) {
                     </button>
                 )
             }
+
+            {/* // alert on no login */}
             {showAlert && !onLogin && (
                 <button className="content-child glow-on-hover"
                     onClick={handleCloseAlert}>
