@@ -1,58 +1,78 @@
 // Content component, renders the,
 //  Tic-Tac-Toe and checkers buttons.
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
 
-function Content({ onLogin = false }) {
-    
-    // before login alert
-    const [showAlert, setShowAlert] = useState(false);
+function Content({ onLogin = false, userName_ }) {
+    const [showAlert, setAlert] = useState(false);
+    const [ticGameClicked, setTicGameClicked] = useState(false);
+    const [checkGameClicked, setCheckGameClicked] = useState(false);
+    const [userNameSend, setUserName] = useState({
+        userName: ""
+    })
 
-    const handleButtonClick = () => {
-        setShowAlert(true);
-    };
+    if (onLogin) {
+        function loginClickTic() {
+            setUserName({
+                userName: userName_
+            });
+            setTicGameClicked(true);
+        }
+        function loginClickCheckers() {
+            setCheckGameClicked(true);
+        }
 
-    const handleCloseAlert = () => {
-        setShowAlert(false);
-    };
-
-    return (
-        <div className="content-parent">
-            {!showAlert ? (
+        return (
+            <div className="content-parent">
+                {ticGameClicked &&
+                    <Navigate to="/welcome/tic-tac-toe" state={userNameSend} />
+                }
                 <button className="content-child1 glow-on-hover" type="button"
-                    onClick={handleButtonClick}>
+                    onClick={loginClickTic}>
                     <h1>Tic-Tac-Toe</h1>
                 </button>
-            ) :
-                onLogin && (
-                    <button className="content-child1 glow-on-hover" type="button">
-                        <h1>Tic-Tac-Toe</h1>
-                    </button>
-                )
-            }
-            
-            {!showAlert ? (
                 <button className="content-child2 glow-on-hover" type="button"
-                    onClick={handleButtonClick}>
+                    onClick={loginClickCheckers}>
                     <h1>Checkers </h1>
                 </button>
-            ) :
-                onLogin && (
-                    <button className="content-child2 glow-on-hover" type="button">
-                        <h1>Checkers </h1>
-                    </button>
-                )
-            }
+            </div>
+        );
+    } else {
 
-            {/* // alert on no login */}
-            {showAlert && !onLogin && (
-                <button className="content-child glow-on-hover"
-                    onClick={handleCloseAlert}>
-                    <h1>Please Login to continue </h1>
-                </button>
-            )}
-        </div>
-    );
+        function handleCloseAlert() {
+            setAlert(false);
+        }
+        function handleButtonClick() {
+            setAlert(true);
+        }
+
+        return (
+            <div className="content-parent">
+                {!showAlert &&
+                    <>
+                        <button className="content-child1 glow-on-hover" type="button"
+                            onClick={handleButtonClick}>
+                            <h1>Tic-Tac-Toe</h1>
+                        </button>
+                    
+                        <button className="content-child2 glow-on-hover" type="button"
+                            onClick={handleButtonClick}>
+                            <h1>Checkers </h1>
+                        </button>
+                    </>
+                }
+
+                {/* alert on no login */}
+                {showAlert && (
+                    <button className="content-child glow-on-hover"
+                        onClick={handleCloseAlert}>
+                        <h1>Please Login to continue </h1>
+                    </button>
+                )}
+            </div>
+        );
+    }
 }
 
 export default Content; 

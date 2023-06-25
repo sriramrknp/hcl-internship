@@ -8,7 +8,7 @@ import Signup from "./Signup";
 import Login from "./Login";
 import {Routes, Route} from "react-router-dom";
 import Welcome from "./Welcome";
-import Tic_Tac_Toe from "./Tic_game";
+import Welcome_ttt from "./Welcome_ttt";
 
 
 function App(props) {
@@ -21,9 +21,8 @@ function App(props) {
             <Routes>
                 <Route key={1} path="/" exact element={[
                     <React.Fragment key={1}>
-                        {/* <Header showLogin showSignup />
-                        <Content /> */}
-                        <Tic_Tac_Toe />
+                        <Header showLogin showSignup />
+                        <Content onLogin = {false} />
                     </React.Fragment>
                     ]}>
                 </Route>
@@ -32,6 +31,8 @@ function App(props) {
                 <Route key={3} path="/signup-react" exact element={<Signup />}>
                 </Route>
                 <Route key={4} path="/welcome" exact element={<Welcome />}>
+                </Route>
+                <Route key={5} path="/welcome/tic-tac-toe" exact element={<Welcome_ttt />}>
                 </Route>
             </Routes>
         </div>

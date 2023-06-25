@@ -89,7 +89,7 @@ function Login() {
         <div>
             {/* // On successful login user will be redirected to the welcome page */}
             {loginSuccess && 
-                <Navigate to="/welcome" replace state={loginUsername} />
+                <Navigate to="/welcome" state={loginUsername} />
             }
             <Header showSignup />
              
