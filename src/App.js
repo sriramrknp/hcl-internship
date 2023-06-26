@@ -2,8 +2,7 @@
 //  the needed components.
 
 import React from "react";
-import Header from "./Header";
-import Content from "./Content";
+import Home from "./Home";
 import Signup from "./Signup";
 import Login from "./Login";
 import {Routes, Route} from "react-router-dom";
@@ -19,12 +18,7 @@ function App(props) {
     return (
         <div>
             <Routes>
-                <Route key={1} path="/" exact element={[
-                    <React.Fragment key={1}>
-                        <Header showLogin showSignup />
-                        <Content onLogin = {false} />
-                    </React.Fragment>
-                    ]}>
+                <Route key={1} path="/" exact element={<Home />}>
                 </Route>
                 <Route key={2} path="/login-react" exact element={<Login />}>
                 </Route>

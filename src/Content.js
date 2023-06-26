@@ -1,13 +1,13 @@
 // Content component, renders the,
 //  Tic-Tac-Toe and checkers buttons.
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 
-function Content({ onLogin = false, userName_ }) {
+function Content({ onLogin = false, userName_ = "" }) {
     const [showAlert, setAlert] = useState(false);
     const [ticGameClicked, setTicGameClicked] = useState(false);
-    const [checkGameClicked, setCheckGameClicked] = useState(false);
+    const [c4GameClicked, setC4GameClicked] = useState(false);
     const [userNameSend, setUserName] = useState({
         userName: ""
     })
@@ -19,8 +19,8 @@ function Content({ onLogin = false, userName_ }) {
             });
             setTicGameClicked(true);
         }
-        function loginClickCheckers() {
-            setCheckGameClicked(true);
+        function loginClickC4() {
+            setC4GameClicked(true);
         }
 
         return (
@@ -33,7 +33,7 @@ function Content({ onLogin = false, userName_ }) {
                     <h1>Tic-Tac-Toe</h1>
                 </button>
                 <button className="content-child2 glow-on-hover" type="button"
-                    onClick={loginClickCheckers}>
+                    onClick={loginClickC4}>
                     <h1>Checkers </h1>
                 </button>
             </div>
@@ -58,7 +58,7 @@ function Content({ onLogin = false, userName_ }) {
                     
                         <button className="content-child2 glow-on-hover" type="button"
                             onClick={handleButtonClick}>
-                            <h1>Checkers </h1>
+                            <h1>Connect 4 </h1>
                         </button>
                     </>
                 }
