@@ -28,6 +28,9 @@ function Content({ onLogin = false, userName_ = "" }) {
                 {ticGameClicked &&
                     <Navigate to="/welcome/tic-tac-toe" state={userNameSend} />
                 }
+                {c4GameClicked &&
+                    <Navigate to="/welcome/connect4" state={userNameSend} />
+                }
                 <button className="content-child1 glow-on-hover" type="button"
                     onClick={loginClickTic}>
                     <h1>Tic-Tac-Toe</h1>

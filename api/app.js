@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const md5 = require("md5");
 
 const port = 4000;
 const app = express();
@@ -30,7 +31,7 @@ app.post("/signup", async (req, res) => {
         const newUser = new GameUser({
             userName: req.body.Username_,
             email: req.body.Email_,
-            password: req.body.Password_,
+            password: md5(req.body.Password_),
         });
         await newUser.save();
         const resRender = { res: "Signup Success" };
@@ -41,7 +42,7 @@ app.post("/signup", async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
-    const password = req.body.Password_;
+    const password = md5(req.body.Password_);
     const username = req.body.Username_;
 
     try {

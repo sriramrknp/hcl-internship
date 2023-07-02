@@ -20,14 +20,14 @@ function Tic_Tac_Toe() {
 
 		if (updatedGameBoard[i][j] === ' ') {
 			// Update the user's move
-			updatedGameBoard[i][j] = 'O';
+			updatedGameBoard[i][j] = '⭕️';
 			setGameBoard(updatedGameBoard);
 	
 			// Call the AI algorithm to find the best move
 			const bestMove = findBestMove(updatedGameBoard);
 			if (bestMove.first !== -1 && bestMove.second !== -1) {
 				// Update the AI's move
-				updatedGameBoard[bestMove.first][bestMove.second] = 'X';
+				updatedGameBoard[bestMove.first][bestMove.second] = '❌';
 			}
 			// Update the gameBoard state with the new game board
 			setGameBoard(updatedGameBoard);
@@ -36,11 +36,11 @@ function Tic_Tac_Toe() {
 			if (score === 10) {
 				setTimeout(() => {
 					alert("AI won the game");
-				}, 0);
+				}, 500);
 			} else if (score === -10) {
 				setTimeout(() => {
 					alert("You won!🥳");
-				}, 0);
+				}, 500);
 			}
 
 		}

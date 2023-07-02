@@ -8,6 +8,7 @@ import Login from "./Login";
 import {Routes, Route} from "react-router-dom";
 import Welcome from "./Welcome";
 import Welcome_ttt from "./Welcome_ttt";
+import Connect4 from "./Connect4";
 
 
 function App(props) {
@@ -27,6 +28,8 @@ function App(props) {
                 <Route key={4} path="/welcome" exact element={<Welcome />}>
                 </Route>
                 <Route key={5} path="/welcome/tic-tac-toe" exact element={<Welcome_ttt />}>
+                </Route>
+                <Route key={5} path="/welcome/connect4" exact element={<Connect4 />}>
                 </Route>
             </Routes>
         </div>

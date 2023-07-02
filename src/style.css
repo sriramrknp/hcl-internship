@@ -233,3 +233,30 @@ input {
     width: 100px;
     height: 100px;
   }
+
+  /* ======== Checkers ======== */
+
+.game-parent-c4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+  }
+
+  .game-child-c4 {
+    flex: 1;
+    /* border: 2px solid rgb(67, 66, 76); */
+  }
+
+  button.game-btn-c4 {
+    border-radius: 35px;
+    vertical-align: middle;
+    text-align: center;
+    margin: 3px;
+    font-size: 40px;
+    width: 70px;
+    height: 70px;
+    justify-content: center;
+    position: relative;
+  }  

@@ -25,8 +25,8 @@ function availableMoves(temp) {
 	return possibleMoves;
 }
   
-// boxFull returns weather board is full or not.
-function boxFull(board) {
+// isBoxFull returns weather board is full or not.
+function isBoxFull(board) {
 	for (var i = 0; i < 3; i++) {
 		for (var j = 0; j < 3; j++) {
 			if (board[i][j] === ' ') {
@@ -66,21 +66,21 @@ var one = false, two = false;
 export function evaluate(board) {
 	for (var i = 0; i < 3; i++) {
 		if ((board[i][0] === board[i][1]) && (board[i][1] === board[i][2]) && (board[i][0] !== ' ')) {
-			if (board[i][0] === 'X') { one = true; }
-			if (board[i][0] === 'O') { two = true; }
+			if (board[i][0] === '❌') { one = true; }
+			if (board[i][0] === '⭕️') { two = true; }
 		}
 		else if ((board[0][i] === board[1][i]) && (board[1][i] === board[2][i]) && (board[1][i] !== ' ')) {
-			if (board[0][i] === 'X') { one = true; }
-			if (board[0][i] === 'O') { two = true; }
+			if (board[0][i] === '❌') { one = true; }
+			if (board[0][i] === '⭕️') { two = true; }
 		}
 	}
 	if ((board[0][0] === board[1][1]) && (board[1][1] === board[2][2]) && (board[0][0] !== ' ')) {
-		if (board[0][0] === 'X') { one = true; }
-			if (board[0][0] === 'O') { two = true; }
+		if (board[0][0] === '❌') { one = true; }
+			if (board[0][0] === '⭕️') { two = true; }
 	}
 	if ((board[0][2] === board[1][1]) && (board[1][1] === board[2][0]) && (board[1][1] !== ' ')) {
-		if (board[2][0] === 'X') { one = true; }
-			if (board[2][0] === 'O') { two = true; }
+		if (board[2][0] === '❌') { one = true; }
+			if (board[2][0] === '⭕️') { two = true; }
 	}
 
 	// if AI wins return positive.
@@ -102,8 +102,8 @@ let depth = 0;
 // Minimax algorithm with alpha beta pruning optimization.
 function minimax(board, alpha, beta, maximizingPlayer) {
 	
-	// if boxFull or win - evaluate score and return.
-	if (boxFull(board) || win(board)) {
+	// if isBoxFull or win - evaluate score and return.
+	if (isBoxFull(board) || win(board)) {
 		var score = evaluate(board);
 		one = false; two = false;
 		return score;
@@ -118,7 +118,7 @@ function minimax(board, alpha, beta, maximizingPlayer) {
 	
 		for (var i = 0; i < possibleMoves.length; i++) {
 			let move = possibleMoves[i];
-			board[move.first][move.second] = 'X';
+			board[move.first][move.second] = '❌';
 			let eval_ = minimax(board, alpha, beta, false);
 			board[move.first][move.second] = ' '; // Undo the move
 	
@@ -137,7 +137,7 @@ function minimax(board, alpha, beta, maximizingPlayer) {
 	
 		for (var i = 0; i < possibleMoves.length; i++) {
 			let move = possibleMoves[i];
-			board[move.first][move.second] = 'O';
+			board[move.first][move.second] = '⭕️';
 			let eval_ = minimax(board, alpha, beta, true);
 			depth--;
 			board[move.first][move.second] = ' '; // Undo the move
@@ -156,7 +156,7 @@ function minimax(board, alpha, beta, maximizingPlayer) {
 // findBestMove returns the best move indices.
 export function findBestMove(board) {
 
-	if (boxFull(board)) {
+	if (isBoxFull(board)) {
 		return new Pair(-1, -1);
 	}
 	let bestEval = Number.NEGATIVE_INFINITY;
@@ -166,7 +166,7 @@ export function findBestMove(board) {
   
 	for (var i = 0; i < possibleMoves.length; i++) {
 		let move = possibleMoves[i];
-		board[move.first][move.second] = 'X';
+		board[move.first][move.second] = '❌';
 		depth = 0;
 		one = false; two = false;
 
