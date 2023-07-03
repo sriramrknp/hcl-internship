@@ -20,6 +20,9 @@ function Content({ onLogin = false, userName_ = "" }) {
             setTicGameClicked(true);
         }
         function loginClickC4() {
+            setUserName({
+                userName: userName_
+            });
             setC4GameClicked(true);
         }
 

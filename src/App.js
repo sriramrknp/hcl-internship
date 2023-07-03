@@ -8,7 +8,7 @@ import Login from "./Login";
 import {Routes, Route} from "react-router-dom";
 import Welcome from "./Welcome";
 import Welcome_ttt from "./Welcome_ttt";
-import Connect4 from "./Connect4";
+import Welcome_Check from "./Welcome_Check";
 
 
 function App(props) {
@@ -19,18 +19,12 @@ function App(props) {
     return (
         <div>
             <Routes>
-                <Route key={1} path="/" exact element={<Home />}>
-                </Route>
-                <Route key={2} path="/login-react" exact element={<Login />}>
-                </Route>
-                <Route key={3} path="/signup-react" exact element={<Signup />}>
-                </Route>
-                <Route key={4} path="/welcome" exact element={<Welcome />}>
-                </Route>
-                <Route key={5} path="/welcome/tic-tac-toe" exact element={<Welcome_ttt />}>
-                </Route>
-                <Route key={5} path="/welcome/connect4" exact element={<Connect4 />}>
-                </Route>
+                <Route key={1} path="/" exact element={<Home />} />
+                <Route key={3} path="/signup-react" exact element={<Signup />} />
+                <Route path="/login-react" exact element={<Login />} />
+                <Route key={4} path="/welcome" exact element={<Welcome />} />
+                <Route key={5} path="/welcome/tic-tac-toe" exact element={<Welcome_ttt />} />
+                <Route key={6} path="/welcome/connect4" exact element={<Welcome_Check />} />
             </Routes>
         </div>
     );

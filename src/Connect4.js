@@ -1,7 +1,6 @@
 // Connect4 game
 
 import React, {useState} from "react";
-import Header from "./Header";
 import { useLocation } from "react-router-dom";
 import {isWinner, isBoardFull, findBestMove} from "./connect4G";
 
@@ -68,7 +67,6 @@ function Connect4() {
 
     return (
         <>
-            <Header showWelcome userName = {state.userName} />
             <div className="game-parent-c4">
                 {/* // Each time every row of the gameBoard will be will be displayed
                 //	with the three being on one div. */}
