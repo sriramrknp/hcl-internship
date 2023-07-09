@@ -11,7 +11,7 @@ function Button(props) {
         <span>
             {props.heading ?
                 <Link
-                    to="/" className="header-link">
+                    to={props.type} className="header-link">
                         <h3> AI<span>verse</span> </h3>
                 </Link>
                 :

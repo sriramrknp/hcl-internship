@@ -2,19 +2,18 @@
 
 import React from "react";
 import Header from "./Header";
-import { useLocation } from "react-router-dom";
 import Connect4 from "./Connect4";
 
-function Welcome_ttt() {
+function WelcomeConnect4() {
     // to display the username on the welcome page
-    const { state } = useLocation();
+    const Username = localStorage.getItem("currentUser");
 
     return (
         <>
-            <Header showWelcome userName = {state.userName} />  
+            <Header showWelcome userName = {Username} />  
             <Connect4 />
         </>
     );
 }
 
-export default Welcome_ttt;
+export default WelcomeConnect4;

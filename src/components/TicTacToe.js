@@ -2,9 +2,9 @@
 //  user move and AI move will be displayed to the client side
 
 import React, { useState } from "react";
-import {evaluate, findBestMove} from "./tic_tac_toe";
+import {evaluate, findBestMove} from "./ticTacToeAlgorithm";
 
-function Tic_Tac_Toe() {
+function TicTacToe() {
 
 	// gameBoard which is taken as Tic-Tac-Toe board
 	//  gameBoard will be updated on user's move and AI's move.
@@ -74,4 +74,4 @@ function Tic_Tac_Toe() {
   
   
 
-export default Tic_Tac_Toe;
+export default TicTacToe;

@@ -17,7 +17,7 @@ function Header({ showLogin = false, showSignup = false, showWelcome = false, us
                 <div className="header-parent">
                     <div className="header-child1">
                         <Button
-                            type="/"
+                            type="/welcome"
                             name="AI verse"
                             heading={true}
                         />

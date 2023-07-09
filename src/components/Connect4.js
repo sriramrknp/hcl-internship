@@ -2,7 +2,7 @@
 
 import React, {useState} from "react";
 import { useLocation } from "react-router-dom";
-import {isWinner, isBoardFull, findBestMove} from "./connect4G";
+import {isWinner, isBoardFull, findBestMove} from "./connect4Algorithm";
 
 function Connect4() {
     const { state } = useLocation();

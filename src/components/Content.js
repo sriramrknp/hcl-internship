@@ -2,7 +2,6 @@
 //  Tic-Tac-Toe and checkers buttons.
 
 import React, { useState } from "react";
-import { Navigate } from "react-router-dom";
 
 function Content({ onLogin = false, userName_ = "" }) {
     const [showAlert, setAlert] = useState(false);
@@ -10,30 +9,20 @@ function Content({ onLogin = false, userName_ = "" }) {
     const [c4GameClicked, setC4GameClicked] = useState(false);
     const [userNameSend, setUserName] = useState({
         userName: ""
-    })
+    });
 
     if (onLogin) {
         function loginClickTic() {
-            setUserName({
-                userName: userName_
-            });
+            window.location.href = "/welcome/tic-tac-toe";
             setTicGameClicked(true);
         }
         function loginClickC4() {
-            setUserName({
-                userName: userName_
-            });
+            window.location.href = "/welcome/connect4";
             setC4GameClicked(true);
         }
 
         return (
             <div className="content-parent">
-                {ticGameClicked &&
-                    <Navigate to="/welcome/tic-tac-toe" state={userNameSend} />
-                }
-                {c4GameClicked &&
-                    <Navigate to="/welcome/connect4" state={userNameSend} />
-                }
                 <button className="content-child1 glow-on-hover" type="button"
                     onClick={loginClickTic}>
                     <h1>Tic-Tac-Toe</h1>

@@ -5,7 +5,6 @@
 
 import React, { useState, useEffect } from "react";
 import Header from "./Header";
-import {Navigate} from "react-router-dom";
 
 function Login() {
 
@@ -18,9 +17,6 @@ function Login() {
 	const [Username, setUsername] = useState("");
     const [Password, setPassword] = useState("");
     const [loginSuccess, setLoginSuccess] = useState(false);
-    const [loginUsername, setLoginUsername] = useState({
-        userName: ""
-    });
 
 
 	// updating the values after state changes in each input
@@ -28,9 +24,6 @@ function Login() {
 		setForm({
 			Username_: Username,
 			Password_: Password
-        });
-        setLoginUsername({
-            userName: Username
         });
 	  }, [Username, Password]);
 
@@ -53,7 +46,6 @@ function Login() {
 
         // POST request to the sever
 		try {
-			console.log(newForm);
 			
 			const response = await fetch('/login', {
 				method: 'POST',
@@ -67,7 +59,8 @@ function Login() {
             // response from the server
             const json = await response.json();
             if (await json.res === "Login Success") {
-                console.log(loginUsername);
+                window.location.replace("/welcome");
+                localStorage.setItem("currentUser", Username);
                 setLoginSuccess(true);
             } else {
                 // reset the form
@@ -88,9 +81,8 @@ function Login() {
 
         <div>
             {/* // On successful login user will be redirected to the welcome page */}
-            {loginSuccess && 
-                <Navigate to="/welcome" state={loginUsername} />
-            }
+            
+
             <Header showSignup />
              
             <div className="form">
