@@ -26,7 +26,7 @@ function availableMoves(temp) {
 }
   
 // isBoxFull returns weather board is full or not.
-function isBoxFull(board) {
+export function isBoxFull(board) {
 	for (var i = 0; i < 3; i++) {
 		for (var j = 0; j < 3; j++) {
 			if (board[i][j] === ' ') {
@@ -35,7 +35,7 @@ function isBoxFull(board) {
 		}
 	}
 	return true;
-  }
+}
 
 
 // returns if there is a win in the board, else false.
@@ -63,7 +63,7 @@ function win(board) {
 var one = false, two = false;
 
 // if win, it evaluates and returns score based upon player.
-export function evaluate(board) {
+function evaluate(board) {
 	for (var i = 0; i < 3; i++) {
 		if ((board[i][0] === board[i][1]) && (board[i][1] === board[i][2]) && (board[i][0] !== ' ')) {
 			if (board[i][0] === '❌') { one = true; }
@@ -190,4 +190,44 @@ export function findBestMove(board) {
 	}
 	// returns the bestMove pair.
 	return new Pair(bestMoveRow, bestMoveCol);
+}
+
+
+
+// isOneEmpty returns weather board is full or not.
+export function isOneEmpty(board) {
+    var one = 0;
+	for (var i = 0; i < 3; i++) {
+		for (var j = 0; j < 3; j++) {
+			if (board[i][j] === ' ') {
+                one++;
+			}
+		}
+    }
+    if(one == 1)
+        return true;
+    return false;
+}
+
+
+// returns who won the match
+export function isWinner(board, icon) {
+	// rows and columns
+	for (var i = 0; i < 3; i++) {
+        if ((board[i][0] === board[i][1]) && (board[i][1] === board[i][2]) && (board[i][0] !== ' ')) {
+            if(board[i][0] === icon) return true;
+		}
+		if ((board[0][i] === board[1][i]) && (board[1][i] === board[2][i]) && (board[1][i] !== ' ')) {
+			if(board[0][i] === icon) return true;
+		}
+	}
+	// diagonals
+	if ((board[0][0] === board[1][1]) && (board[1][1] === board[2][2]) && (board[0][0] !== ' ')) {
+		if(board[0][0] === icon) return true;
+	}
+	if ((board[0][2] === board[1][1]) && (board[1][1] === board[2][0]) && (board[1][1] !== ' ')) {
+		if(board[0][2] === icon) return true;
+	}
+
+	return false;
 }

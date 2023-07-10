@@ -5,8 +5,8 @@ import React from "react";
 import Home from "./Home";
 import Signup from "./Signup";
 import {Routes, Route} from "react-router-dom";
-import Welcome_ttt from "./WelcomeTicTacToe";
-import Welcome_Check from "./WelcomeConnect4";
+import WelcomeTicTacToe from "./Tic-Tac-Toe/WelcomeTicTacToe";
+import WelcomeConnect4 from "./Connect4/WelcomeConnect4";
 import Login from "./Login";
 import Welcome from "./Welcome";
 
@@ -23,8 +23,8 @@ function App() {
                 <Route key={2} path="/signup-react" exact element={<Signup />} />
                 <Route key={3} path="/login-react" exact element={<Login />} />
                 <Route key={2} path="/welcome" exact element={<Welcome />} />
-                <Route key={4} path="/welcome/tic-tac-toe" exact element={<Welcome_ttt />} />
-                <Route key={5} path="/welcome/connect4" exact element={<Welcome_Check />} />
+                <Route key={4} path="/welcome/tic-tac-toe" exact element={<WelcomeTicTacToe />} />
+                <Route key={5} path="/welcome/connect4" exact element={<WelcomeConnect4 />} />
             </Routes>
         </div>
     );

@@ -1,7 +1,7 @@
-// Welcome-ttt component renders Tic-Tac-Toe clicked on login 
+// Component renders Tic-Tac-Toe clicked on login 
 
 import React from "react";
-import Header from "./Header";
+import Header from "../Header";
 import TicTacToe from "./TicTacToe";
 
 function WelcomeTicTacToe() {

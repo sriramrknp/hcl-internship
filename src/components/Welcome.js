@@ -2,7 +2,7 @@
 
 import React from "react";
 import Header from "./Header";
-import Content from "./Content";
+import ContentLogin from "./ContentLogin";
 
 
 function Welcome() {
@@ -13,7 +13,7 @@ function Welcome() {
     return (
         <>
             <Header showWelcome userName = {Username} />  
-            <Content onLogin userName_= {Username} />
+            <ContentLogin />
         </>
     );
 }
