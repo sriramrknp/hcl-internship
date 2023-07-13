@@ -41,34 +41,31 @@ app.post("/signup", async (req, res) => {
         }
 });
 
-app.post("/login", async (req, res) => {
+app.post('/login', async (req, res) => {
     const password = md5(req.body.Password_);
     const username = req.body.Username_;
-
+  
     try {
-        const foundUser = await GameUser.findOne({ userName: username });
-        if (foundUser) {
-          // Compare the encrypted passwords
-          if (foundUser.password === password) {
+      const foundUser = await GameUser.findOne({ userName: username });
+      if (foundUser) {
+        // Compare the encrypted passwords
+        if (foundUser.password === password) {
             const resRender = { res: "Login Success" };
             res.send(resRender);
-          } else {
-            console.log("Incorrect password");
-            // Handle incorrect password
-            const resRender = { res: "Incorrect password" };
-            res.send(resRender);          
-          }
         } else {
-          console.log("User not found");
-          // Handle user not found
-          const resRender = { res: "User not found" };
-          res.send(resRender);
+          console.log('Incorrect password');
+          res.status(401).json({ error: 'Incorrect password' });
         }
-      } catch (err) {
-            console.log(err);
-        }
-});
-
+      } else {
+        console.log('User not found');
+        res.status(404).json({ error: 'User not found' });
+      }
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Server error' });
+    }
+  });
+  
 
 app.listen(port, (req, res) => {
 	console.log(`Server started on port ${port}`);

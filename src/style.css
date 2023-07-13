@@ -278,6 +278,7 @@ input {
   .modal-child1 {
     padding: 2%;
     flex: 1;
+    color: #fff;
   }
   
   .modal-child2 {
@@ -285,6 +286,7 @@ input {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    color: #fff;
   }
 
   .modal-child2 > .modal-button {

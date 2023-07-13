@@ -5,6 +5,8 @@
 
 import React, { useState, useEffect } from "react";
 import Header from "./Header";
+import 'reactjs-popup/dist/index.css';
+import Popup from 'reactjs-popup';
 
 function Login() {
 
@@ -16,7 +18,7 @@ function Login() {
 	});
 	const [Username, setUsername] = useState("");
     const [Password, setPassword] = useState("");
-    const [loginSuccess, setLoginSuccess] = useState(false);
+    const [isErr, setIsErr] = useState(false);
 
 
 	// updating the values after state changes in each input
@@ -59,11 +61,11 @@ function Login() {
             // response from the server
             const json = await response.json();
             if (await json.res === "Login Success") {
-                window.location.replace("/welcome");
                 localStorage.setItem("currentUser", Username);
-                setLoginSuccess(true);
+                window.location.replace("/welcome");
             } else {
-                // reset the form
+                setIsErr(true);
+
                 setUsername("");
                 setPassword("");
 
@@ -71,6 +73,10 @@ function Login() {
                     Username_: "",
                     Password_: ""
                 });
+
+                setTimeout(() => {
+                    setIsErr(false);
+                }, 800);
             }
 		} catch (error) {
 			console.error(error);
@@ -112,6 +118,21 @@ function Login() {
                     </button>
                 </form>
             </div>
+
+            <Popup
+                open={isErr} closeOnEscape={false}
+                closeOnDocumentClick={false} 
+            >
+                <div className="modal-parent">
+                    <br></br><br></br>
+                    <div className="modal-child1">
+                        <h2> Invalid Credentials </h2>
+                    </div>
+                    <br></br><br></br>
+                </div>
+            </Popup>
+            
+
         </div>
 	);
 }

@@ -4,8 +4,12 @@
 
 import React, { useState, useEffect } from "react";
 import Header from "./Header";
+import 'reactjs-popup/dist/index.css';
+import Popup from 'reactjs-popup';
 
 function Signup() {
+
+    const [isErr, setIsErr] = useState(false);
 
     // set form and update form
 	const [newForm, setForm] = useState({
@@ -54,7 +58,27 @@ function Signup() {
 	async function handleSubmit(event) {
 
 		// Prevent the form from being submitted.
-		event.preventDefault();
+        event.preventDefault();
+        
+        if (Password !== Cnf_Password) {
+            setIsErr(true);
+
+            await setUsername("");
+            await setEmail("");
+            await setPassword("");
+            await setCnfPassword("");
+
+            await setForm({
+                Username_: "",
+                Email_: "",
+                Password_: "",
+                Cnf_Password_: ""
+            });
+
+            setTimeout(() => {
+                setIsErr(false);
+            }, 800);
+        }
 
 		try {
 			console.log(newForm);
@@ -139,7 +163,21 @@ function Signup() {
 						<h3>Sign up</h3>
 					</button>
 				</form>
-			</div>
+            </div>
+            
+            <Popup
+                open={isErr} closeOnEscape={false}
+                closeOnDocumentClick={false} 
+            >
+                <div className="modal-parent">
+                    <br></br><br></br>
+                    <div className="modal-child1">
+                        <h2> Password didn't match </h2>
+                    </div>
+                    <br></br><br></br>
+                </div>
+            </Popup>
+
 		</div>
 	);
 }

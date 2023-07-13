@@ -166,31 +166,6 @@ function minimax(board, depth, alpha, beta, player) {
 	}
 }
 
-function getConnectedPieces(board, winner) {
-	// Returns an array of the coordinates of connected pieces of the winner
-	var arr = new Array(6);
-	for (let i = 0; i < 6; i++) {
-		arr[i] = new Array(7);
-		for (var j = 0; j < 7; j++)
-			arr[i][j] = i * 7 + j;
-	}
-
-	var sections = getAllPossible4(board);
-	var arraySections = getAllPossible4(arr);
-	var positions = [];
-
-	for (let i = 0; i < sections.length; i++) {
-		if (sections[i].toString() === [winner, winner, winner, winner].toString()) {
-			for (let j = 0; j < 4; j++) {
-				var pos = arraySections[i][j];
-				positions.push([pos % 7, Math.floor(pos / 7)]);
-			}
-			break;
-		}
-	}
-	return positions;
-}
-
 export function findBestMove(board) {
 	var bestMove = minimax(board, 6, Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY, '🔴');
 	return bestMove[0];

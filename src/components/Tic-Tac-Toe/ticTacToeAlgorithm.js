@@ -135,7 +135,7 @@ function minimax(board, alpha, beta, maximizingPlayer) {
 		let minEval = Number.POSITIVE_INFINITY;
 		let possibleMoves = availableMoves(board);
 	
-		for (var i = 0; i < possibleMoves.length; i++) {
+		for (let i = 0; i < possibleMoves.length; i++) {
 			let move = possibleMoves[i];
 			board[move.first][move.second] = '⭕️';
 			let eval_ = minimax(board, alpha, beta, true);
@@ -204,7 +204,7 @@ export function isOneEmpty(board) {
 			}
 		}
     }
-    if(one == 1)
+    if(one === 1)
         return true;
     return false;
 }
