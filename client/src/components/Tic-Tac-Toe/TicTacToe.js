@@ -54,7 +54,10 @@ function TicTacToe() {
     const [isAiWon, setIsAiWon] = useState(false);
     const [isPlayerWon, setIsPlayerWon] = useState(false);
     const [isDraw, setIsDraw] = useState(false);
-    const refresh = () => navigate(0);
+    
+    function refresh() {
+        navigate(0);
+    }
 
     function goBack() {
         navigate('/welcome', {replace: true});
