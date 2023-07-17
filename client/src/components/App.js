@@ -22,9 +22,9 @@ function App() {
                 <Route key={1} path="/" exact element={<Home />} />
                 <Route key={2} path="/signup-react" exact element={<Signup />} />
                 <Route key={3} path="/login-react" exact element={<Login />} />
-                <Route key={2} path="/welcome" exact element={<Welcome />} />
-                <Route key={4} path="/welcome/tic-tac-toe" exact element={<WelcomeTicTacToe />} />
-                <Route key={5} path="/welcome/connect4" exact element={<WelcomeConnect4 />} />
+                <Route key={4} path="/welcome" exact element={<Welcome />} />
+                <Route key={5} path="/welcome/tic-tac-toe" exact element={<WelcomeTicTacToe />} />
+                <Route key={6} path="/welcome/connect4" exact element={<WelcomeConnect4 />} />
             </Routes>
         </div>
     );
