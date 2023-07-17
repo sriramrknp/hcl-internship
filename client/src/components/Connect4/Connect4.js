@@ -1,7 +1,7 @@
 // Connect4 game
 
 import React, { useState } from "react";
-import { isWinner, isBoardFull, findBestMovec} from "./connect4Algorithm";
+import { isWinner, isBoardFull, findBestMove } from "./connect4Algorithm";
 import 'reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
 import { useNavigate } from "react-router-dom";
