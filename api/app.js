@@ -37,6 +37,7 @@ app.post("/signup", async (req, res) => {
         });
         await newUser.save();
         const resRender = { res: "Signup Success" };
+        console.log("Signup Success");
         res.send(resRender);
     }   catch (err) {
             console.log(err);
@@ -53,6 +54,7 @@ app.post('/login', async (req, res) => {
         // Compare the encrypted passwords
         if (foundUser.password === password) {
             const resRender = { res: "Login Success" };
+            console.log("login Success");
             res.send(resRender);
         } else {
           console.log('Incorrect password');
