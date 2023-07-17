@@ -81,9 +81,7 @@ function Signup() {
         }
 
 		try {
-			console.log(newForm);
-			
-			const response = await fetch('/signup', {
+			const response = await fetch('https://aiverse-od3c.onrender.com/signup', {
 				method: 'POST',
 				// Adding body or contents to send
 				body: JSON.stringify(newForm),

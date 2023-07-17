@@ -49,12 +49,12 @@ function Login() {
         // POST request to the sever
 		try {
 			
-			const response = await fetch('/login', {
+			const response = await fetch('https://aiverse-od3c.onrender.com/login', {
 				method: 'POST',
 				// Adding body or contents to send
 				body: JSON.stringify(newForm),
 				headers: {
-					"Content-type": "application/json; charset=UTF-8"
+					"Content-type": "application/json"
 				}
 			});
 
