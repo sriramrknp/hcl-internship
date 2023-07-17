@@ -5,8 +5,10 @@ import React, { useState } from "react";
 import { isWinner, findBestMove, isBoxFull, isOneEmpty } from "./ticTacToeAlgorithm";
 import 'reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
+import { useNavigate } from "react-router-dom";
 
 function TicTacToe() {
+    const navigate = useNavigate();
 
 	// gameBoard which is taken as Tic-Tac-Toe board
 	//  gameBoard will be updated on user's move and AI's move.
@@ -52,10 +54,10 @@ function TicTacToe() {
     const [isAiWon, setIsAiWon] = useState(false);
     const [isPlayerWon, setIsPlayerWon] = useState(false);
     const [isDraw, setIsDraw] = useState(false);
-    const refresh = () => window.location.reload(true);
+    const refresh = () => navigate(0);
 
     function goBack() {
-        window.location.replace("/welcome");
+        navigate('/welcome', {replace: true});
     }
   
     return (

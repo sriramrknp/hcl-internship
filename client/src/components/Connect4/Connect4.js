@@ -4,8 +4,10 @@ import React, { useState } from "react";
 import { isWinner, isBoardFull, findBestMove } from "./connect4Algorithm";
 import 'reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
+import { useNavigate } from "react-router-dom";
 
 function Connect4() {
+    const navigate = useNavigate();
 
 	const [gameBoard, setGameBoard] = useState([
 		[" ", " ", " ", " ", " ", " ", " "],
@@ -67,10 +69,10 @@ function Connect4() {
     const [isAiWon, setIsAiWon] = useState(false);
     const [isPlayerWon, setIsPlayerWon] = useState(false);
     const [isDraw, setIsDraw] = useState(false);
-    const refresh = () => window.location.reload(true);
+    const refresh = () => navigate(0);
     
     function goBack() {
-        window.location.replace("/welcome");
+        navigate('/welcome', {replace: true});
     }
 
 	return (
