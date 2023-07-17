@@ -1,14 +1,17 @@
 // Profile component, renders user Dashboard
 
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function ContentLogin() {
+
+    const navigate = useNavigate();
    
     function loginClickTic() {
-        window.location.href = "/welcome/tic-tac-toe";
+        navigate("/welcome/tic-tac-toe");
     }
     function loginClickC4() {
-        window.location.href = "/welcome/connect4";
+        navigate("/welcome/connect4");
     }
 
     return (
