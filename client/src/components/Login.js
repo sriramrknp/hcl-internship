@@ -62,7 +62,7 @@ function Login() {
             const json = await response.json();
             if (await json.res === "Login Success") {
                 localStorage.setItem("currentUser", Username);
-                window.location.href("/welcome");
+                window.location.href = "/welcome";
             } else {
                 setIsErr(true);
 
