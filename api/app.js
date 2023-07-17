@@ -3,11 +3,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const md5 = require("md5");
+const cors = require("cors");
 
 const port = 4000;
 const app = express();
 
-
+app.use(cors());
 app.use(express.json());
 
 main().catch(err => console.log(err));
