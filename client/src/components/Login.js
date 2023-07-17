@@ -7,11 +7,13 @@ import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import 'reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
 
     // Hooks to set the form, update the form,
     //  set variables, update variables and etc.
+    const navigate = useNavigate();
     const [newForm, setForm] = useState({
 		Username_: "",
 		Password_: "",
@@ -62,7 +64,8 @@ function Login() {
             const json = await response.json();
             if (await json.res === "Login Success") {
                 localStorage.setItem("currentUser", Username);
-                window.location.href = "/welcome";
+                // window.location.href = "/welcome";
+                navigate('/welcome');
             } else {
                 setIsErr(true);
 
