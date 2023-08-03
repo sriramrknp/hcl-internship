@@ -298,3 +298,30 @@ input {
     background-color: #4b4a46;
     color: #fff;
   }
+
+
+  .modal-parent-home {
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    padding: 8%;
+    margin: 0;
+    flex-direction: column;
+    background-color: #978656;
+  }
+
+  .modal-child1-home {
+    padding: 2%;
+    flex: 1;
+    color: #4b4a46;
+  }
+
+  .modal-child2 > .modal-button-home {
+    width: 100px;
+    height: 60px;
+    margin-top: 40px;
+    border-radius: 20px;
+    border: dotted 2px solid;
+    background-color: #4b4a46;
+    color: #fff;
+  }

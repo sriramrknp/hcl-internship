@@ -77,7 +77,7 @@ function Signup() {
 
             setTimeout(() => {
                 setIsErr(false);
-            }, 800);
+            }, 500);
         }
 
 		try {

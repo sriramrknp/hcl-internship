@@ -64,6 +64,7 @@ function Login() {
             const json = await response.json();
             if (await json.res === "Login Success") {
                 localStorage.setItem("currentUser", Username);
+                localStorage.setItem("UserLogin", 'true');
                 navigate('/welcome', {replace: true});
             } else {
                 setIsErr(true);
@@ -78,7 +79,7 @@ function Login() {
 
                 setTimeout(() => {
                     setIsErr(false);
-                }, 800);
+                }, 500);
             }
 		} catch (error) {
 			console.error(error);
